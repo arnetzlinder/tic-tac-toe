@@ -1,5 +1,5 @@
 export interface IGameState {
-    gameboard: [];
+    gameboard: string[];
     showScores: boolean;
     users: {
         nameX: string,
@@ -9,4 +9,6 @@ export interface IGameState {
         scoresX: number,
         scoresO: number,
     };
+    isXturn: boolean;
+    gameOver: boolean;
 }
