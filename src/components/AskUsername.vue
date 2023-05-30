@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="welcome">
         <h1>Välkommen till tre-i-rad</h1>
         <p>Fyll i namnet på spelare x och o och spela därefter</p>
         <label>Namnet på spelare {{ xoro }}</label>
@@ -35,7 +35,8 @@ let name = "";
     .usernameBtn {
         border-radius: 1rem;
         padding: 1rem;
-        background-color: aqua;
+        background-color: rgb(90, 42, 7);
+        color:beige;
         margin: 1rem;
     }
 
@@ -43,10 +44,16 @@ let name = "";
         border-radius: 1rem;
         padding: 1rem;
         font-size: 1rem;
+        color: rgb(90, 42, 7);
+        font-weight: bolder;
     }
 
     label {
         font-size: 1.5rem;
         margin: 1rem;
+    }
+
+    .welcome {
+        color: rgb(90, 42, 7);
     }
 </style>

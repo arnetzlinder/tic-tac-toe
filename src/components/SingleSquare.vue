@@ -18,7 +18,7 @@
   </script>
    <style scoped>
     .gameSquare {
-        border: 2px black solid;
+        border: 2px rgb(90, 42, 7) solid;
     }
 
     .gameValue {

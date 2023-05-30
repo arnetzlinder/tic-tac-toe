@@ -26,6 +26,8 @@
     props.gameState.gameOver = false;
     props.gameState.users.nameX = "";
     props.gameState.users.nameO = "";
+    props.gameState.scores.scoresX= 0;
+    props.gameState.scores.scoresO= 0;
 
     
   };
@@ -42,11 +44,12 @@
     .restartGame {
         margin: 1rem;
         position: absolute;
-        right: 47rem;
+        margin-top: 3rem;
     }
 
     button {
         margin: 1rem;
-        background-color:aqua;
+        background-color:rgb(90, 42, 7);
+        color: sandybrown
     }
 </style>
