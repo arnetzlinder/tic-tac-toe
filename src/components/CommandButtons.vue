@@ -28,6 +28,7 @@
     props.gameState.users.nameO = "";
     props.gameState.scores.scoresX= 0;
     props.gameState.scores.scoresO= 0;
+    localStorage.removeItem('gameState');
 
     
   };

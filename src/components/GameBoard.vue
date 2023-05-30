@@ -27,8 +27,6 @@
   
   const play = (index: number) => {
     if (props.gameState.gameOver) {
-        console.log("Game is already over")
-      // Game is already over, do nothing
       return;
     }
   
@@ -71,7 +69,6 @@ function checkIfGameOver(index: number) {
           props.gameState.gameboard[b] === currentPlayer &&
           props.gameState.gameboard[c] === currentPlayer
         ) {
-          //window.alert(`${currentPlayer} won!`);
           if (currentPlayer == 'O') { 
             props.gameState.scores.scoresO++; 
         } else { props.gameState.scores.scoresX++; 
@@ -84,32 +81,23 @@ function checkIfGameOver(index: number) {
       // Check for a tie
       const isTie = props.gameState.gameboard.every((square) => square !== '');
       if (isTie) {
-        //window.alert("It's a tie!");
         props.gameState.gameOver = true;
       }
 
 }
 
 function runAiMove() {
-  let aiboard: string[][] = [[props.gameState.gameboard[0],props.gameState.gameboard[1],props.gameState.gameboard[2]],
+  let aiBoard: string[][] = [[props.gameState.gameboard[0],props.gameState.gameboard[1],props.gameState.gameboard[2]],
                                   [props.gameState.gameboard[3],props.gameState.gameboard[4],props.gameState.gameboard[5]],
                                   [props.gameState.gameboard[6], props.gameState.gameboard[7],props.gameState.gameboard[8]]];
       let move = { row: -1, col: -1 };
-      move = findBestMove(aiboard);
+      move = findBestMove(aiBoard);
       props.gameState.isXturn = !props.gameState.isXturn;
       props.gameState.gameboard[3*move.row+move.col] = 'O'
       checkIfGameOver(3*move.row+move.col);
-      console.log(aiboard);
-      console.log(move);
       currentUser = props.gameState.users.nameX;
-
-
 }
 
-
-
-
-  
   function isMovesLeft(board: string[][])
 {
     for(let i = 0; i < 3; i++)
@@ -177,8 +165,6 @@ function evaluate(b: string[][])
     // won then return 0
     return 0;
 }
-
-
 
 function minimax(board: string[][], depth: number, isMax: boolean)
 {
@@ -262,7 +248,6 @@ function minimax(board: string[][], depth: number, isMax: boolean)
     }
 }
 
-
 function findBestMove(board: string[][])
 {
     let bestVal = -1000;
@@ -305,22 +290,9 @@ function findBestMove(board: string[][])
             }
         }
     }
-   
-    console.log("The value of the best Move " +
-                   "is : ", bestVal + "<br><br>");
-   
+
     return bestMove;
 }
-  
-
-
-
-
-
-
-
-
-
 
   </script>
   
@@ -330,8 +302,8 @@ function findBestMove(board: string[][])
         color:rgb(90, 42, 7);
     }
     .gameBoard {
-        width: 20rem;
-        height: 20rem;
+        width: 23rem;
+        height: 23rem;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
@@ -341,14 +313,15 @@ function findBestMove(board: string[][])
         color: rgb(90, 42, 7);
         }
 
-        .div1 { grid-area: 1 / 1 / 2 / 2; }
-        .div2 { grid-area: 2 / 1 / 3 / 2; }
-        .div3 { grid-area: 3 / 1 / 4 / 2; }
-        .div4 { grid-area: 1 / 2 / 2 / 3; }
-        .div5 { grid-area: 2 / 2 / 3 / 3; }
-        .div6 { grid-area: 3 / 2 / 4 / 3; }
-        .div7 { grid-area: 1 / 3 / 2 / 4; }
-        .div8 { grid-area: 2 / 3 / 3 / 4; }
-        .div9 { grid-area: 3 / 3 / 4 / 4; }
+        @media (width <= 740px) {
+          .gameBoard {
+            width: 20rem;
+            height: 20rem;
+          }
+
+          h1 {
+            font-size: 2rem;
+          }
+        }
 
 </style>

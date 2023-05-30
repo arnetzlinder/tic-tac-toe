@@ -1,7 +1,7 @@
 <template>
     <div class="welcome">
         <h1>Välkommen till tre-i-rad</h1>
-        <p>Fyll i namnet på spelare x och o och spela därefter</p>
+        <p>Fyll i namnet på spelare X och O och spela därefter, om du vill spela mot datorn skriver du CPU som namn på spelare O</p>
         <label>Namnet på spelare {{ xoro }}</label>
         <input v-model="name" class="askPlayer"/>
         <button class="usernameBtn" @click="() => submitUserName(xoro, gameState)">Nästa</button>
@@ -18,11 +18,9 @@ let name = "";
   
   const submitUserName = (xoro: string, gameState: IGameState) => {
     if (xoro === 'X') {
-        console.log("Setting name for X to " + name)
         gameState.users.nameX = name;
         // gameState.users.nameX = askPlayer
     } else {
-        console.log("Setting name for O to " + name)
         gameState.users.nameO = name;
     
     }
@@ -53,7 +51,21 @@ let name = "";
         margin: 1rem;
     }
 
+    p {
+        line-break: auto;
+    }
+
     .welcome {
         color: rgb(90, 42, 7);
+    }
+
+    @media (width <= 740px) {
+        .welcome {
+            max-width: 30rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
     }
 </style>

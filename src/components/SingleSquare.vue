@@ -12,8 +12,7 @@
   }>();
   
   const playGame = () => {
-    console.log("Square clicked in SingleSquare:", props.state);
-    // Emit an event to notify the parent component
+   
   };
   </script>
    <style scoped>

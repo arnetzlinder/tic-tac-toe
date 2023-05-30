@@ -1,35 +1,12 @@
-<template>
-    <div class="ticTacToeGame">
-      <div class="gameBoardShow" v-if="gameState.users.nameX.length>0 && gameState.users.nameO.length>0">  
-      <GameBoard :gameState="gameState" @play="playGame" />
-     
-
-      </div>
-      <div class="aside">
-        <ShowScores :gameState="gameState"/>
-      </div>
-      <div>
-        <CommandButtons :gameState="gameState"/>
-      </div>
-      <div v-if="gameState.users.nameX.length==0">
-      <AskUsername :xoro="'X'" :gameState="gameState"/>
-      </div>
-      <div v-else-if="gameState.users.nameO.length==0">
-      <AskUsername :xoro="'O (hint: use \'CPU\')'" :gameState="gameState"/>
-      </div>
-
-    </div>
-  </template>
-  
-  <script setup lang="ts">
-  import { ref, reactive } from 'vue';
-  import GameBoard from './GameBoard.vue';
-  import CommandButtons from './CommandButtons.vue';
-  import AskUsername from './AskUsername.vue';
-  import { IGameState } from '../models/IGameState';
+<script setup lang="ts">
+import { watch, ref, computed, reactive } from 'vue';
+import GameBoard from './GameBoard.vue';
+import CommandButtons from './CommandButtons.vue';
+import AskUsername from './AskUsername.vue';
+import { IGameState } from '../models/IGameState';
 import ShowScores from './ShowScores.vue';
   
-  const gameState = reactive<IGameState>({
+const gameState = reactive<IGameState>({
     gameboard: ["", "", "", "", "", "", "", "", ""],
     showScores: false,
     users: {
@@ -45,12 +22,41 @@ import ShowScores from './ShowScores.vue';
   });
 //localStorage.getItem('gameState');
 
+const gameStateFromLocalStorage = localStorage.getItem('gameState');
+if (gameStateFromLocalStorage) {
+    Object.assign(gameState, JSON.parse(gameStateFromLocalStorage));
+}
 
-  const playGame = (index: number) => {
-    console.log("Square clicked:", index);
-    // Modify the game state accordingly
-  };
-  </script>
+watch(gameState, (gameStateFromLocalStorage) => {
+    localStorage.setItem('gameState', JSON.stringify(gameStateFromLocalStorage));
+});
+
+const playGame = (index: number) => {
+};
+</script>
+
+<template>
+    <div class="ticTacToeGame">
+      <div class="gameBoardShow" v-if="gameState.users.nameX.length>0 && gameState.users.nameO.length>0">  
+      <GameBoard :gameState="gameState" @play="playGame" />
+     
+
+      </div>
+      <div class="aside" v-if="gameState.users.nameX.length>0 && gameState.users.nameO.length>0">
+        <ShowScores :gameState="gameState"/>
+      </div>
+      <div>
+        <CommandButtons :gameState="gameState"/>
+      </div>
+      <div v-if="gameState.users.nameX.length==0">
+      <AskUsername :xoro="'X'" :gameState="gameState"/>
+      </div>
+      <div v-else-if="gameState.users.nameO.length==0">
+      <AskUsername :xoro="'O (hint: use \'CPU\')'" :gameState="gameState"/>
+      </div>
+
+    </div>
+</template>
   
 <style scoped>
     .ticTacToeGame{
@@ -58,6 +64,8 @@ import ShowScores from './ShowScores.vue';
         border: 5px solid rgb(90, 42, 7);
         padding: 2rem;
         border-radius: 10px;
+        /* width:max-content; */
+        height:fit-content;
     }
 
     .gameBoardShow {
@@ -68,7 +76,8 @@ import ShowScores from './ShowScores.vue';
     }
 
     .aside {
-        position: absolute;
+        position: relative;
+        display: contents;
         border: 5px solid rgb(90, 42, 7);
         background-color: sandybrown;
         color: rgb(90, 42, 7);
@@ -79,4 +88,6 @@ import ShowScores from './ShowScores.vue';
         margin-top:2rem;
         padding: 2rem;
     }
+
+    
 </style>

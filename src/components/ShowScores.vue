@@ -11,9 +11,6 @@ import { IGameState } from '../models/IGameState';
 const props = defineProps<{
     gameState: IGameState;
   }>();
-
-  console.log(props.gameState.users.nameO, props.gameState.scores.scoresO)
-
 </script>
 
 <style scoped>
