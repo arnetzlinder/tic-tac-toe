@@ -1,10 +1,11 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/XOvGiyhD)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11236435&assignment_repo_type=AssignmentRepo)
-# Inlämningsuppgift Tre-i-rad
+# Betygkriterier för uppgiften följer nedan
+I kursen Javascript fördjupning fick vi uppgiften att skapa ett tre-i-radspel i Vue. Några dagars intensivt kodande ledde fram till detta lilla spel med en extra feature där du kan spela mot datorn. Jag har använt Vue och Typescript.
+
+## Inlämningsuppgift Tre-i-rad
 
 Denna mall innehåller ett tomt vue-projekt baserat på typescript. Er uppgift är att skapa spelet tre-i-rad med hjälp av denna mall. Eftersom ni inte har någonting att utgå ifrån så har ni fria händer att skapa just er unika lösning.
 
-## Betyg G
+### Betyg G
 
 - Kunna ange spelarnamn för X respektive O
 - Kunna spela ett spel och få en vinnare/oavgjort
@@ -12,7 +13,7 @@ Denna mall innehåller ett tomt vue-projekt baserat på typescript. Er uppgift �
 - Kunna starta ett nytt spel
 - Använda minst en komponent
 
-## Betyg VG
+### Betyg VG
 
 - Använda minst tre komponenter för er lösning
 - Spara poänghistorik för spelarna
