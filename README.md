@@ -1,10 +1,17 @@
 
-# Betygkriterier för uppgiften följer nedan
-I kursen Javascript fördjupning fick vi uppgiften att skapa ett tre-i-radspel i Vue. Några dagars intensivt kodande ledde fram till detta lilla spel med en extra feature där du kan spela mot datorn. Jag har använt Vue och Typescript.
+# Tic tac toe
+I kursen Javascript fördjupning vid Medieinstitutet våren 2023 fick vi uppgiften att skapa ett tre-i-radspel i ramverket Vue. Några dagars intensivt kodande ledde fram till detta lilla spel med en extra feature där du kan spela mot datorn. 
 
-## Inlämningsuppgift Tre-i-rad
+## Tech stack
+Vue
+Typescript
+Vite
+Eslint
+Prettier
 
-Denna mall innehåller ett tomt vue-projekt baserat på typescript. Er uppgift är att skapa spelet tre-i-rad med hjälp av denna mall. Eftersom ni inte har någonting att utgå ifrån så har ni fria händer att skapa just er unika lösning.
+## Krav på uppgiften
+
+Vi fick ett tomt projekt och fria händer att skapa detta.
 
 ### Betyg G
 
